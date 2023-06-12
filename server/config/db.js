@@ -1,5 +1,14 @@
 import mongoose from "mongoose";
-const URI = "mongodb+srv://salim_md:mdsalim@cluster0.5lx7gov.mongodb.net/myNotebook"
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const USERNAME = process.env.DB_USERNAME;
+const PASSWROD = process.env.DB_PASSWORD;
+
+const URI = `mongodb+srv://${USERNAME}:${PASSWROD}@cluster0.5lx7gov.mongodb.net/myNotebook`
+
+
 const connectToMongo = async () => {
     const res = await mongoose.connect(URI);
     if(res){
