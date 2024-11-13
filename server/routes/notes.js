@@ -20,9 +20,9 @@ router.post(
   "/addnote",
   fetchuser,
   [
-    body("title", "Enter a valid title").isLength({ min: 3 }),
-    body("description", "Description must be atleast 5 characters").isLength({
-      min: 5,
+    body("title", "Enter a valid title").isLength({ min: 1 }),
+    body("description", "Description must be atleast 1 characters").isLength({
+      min: 1,
     }),
   ],
   async (req, res) => {
@@ -32,11 +32,10 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     try {
-      const { title, description, tag } = req.body;
+      const { title, description } = req.body;
       const note = new Notes({
         title,
         description,
-        tag,
         user: req.user.id,
       });
       const saveNote = await note.save();
