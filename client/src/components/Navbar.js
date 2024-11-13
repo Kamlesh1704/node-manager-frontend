@@ -1,6 +1,8 @@
 // import React, {useEffect} from "react";
 import React from "react";
 import {Link, useLocation, useNavigate} from "react-router-dom";
+import { FiEdit } from "react-icons/fi";
+import { FaRegNoteSticky } from "react-icons/fa6";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -9,14 +11,12 @@ const Navbar = () => {
     navigate('/login')
   }
   let location = useLocation();
-  // useEffect(() => {
-  //   console.log(location.pathname)
-  // }, [location]);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          NoteManager
+        <h1   className="navbar-brand ml-5">Testaing Note Manager</h1>
         </Link>
         <button
           className="navbar-toggler"
@@ -30,15 +30,15 @@ const Navbar = () => {
         <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav me-auto mb-5 mb-lg-0">
             <li className="nav-item">
-              <Link className={`nav-link ${location.pathname==="/"?"active": ""}`} to="/">
-                Home
+              <Link style={{marginRight:"15px",marginLeft:"30px"}} className={`nav-link ${location.pathname==="/"?"active": ""}`} to="/">
+                New <FiEdit />
               </Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${location.pathname==="/about"?"active": ""}`} to="/about">
-                About
+              <Link className={`nav-link ${location.pathname==="/allnotes"?"active": ""}`} to="/allnotes">
+                All Notes <FaRegNoteSticky />
               </Link>
             </li>
           </ul>
