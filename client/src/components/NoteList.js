@@ -1,8 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import noteContext from "../context/notes/NoteContext";
 import Noteitem from "./Noteitem";
-import { FaSearch } from "react-icons/fa";
-
 
 const NoteList = (props) => {
   const context = useContext(noteContext);

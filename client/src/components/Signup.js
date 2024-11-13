@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Signup = (props) => {
-  const host = "http://localhost:9000";
+  const host = "https://node-manager-back-k.onrender.com";
   const [credentials, setCredentials] = useState({name: "", email: "", password: "", cpassword: ""});
   const navigate = useNavigate();
 
