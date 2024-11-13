@@ -1,6 +1,7 @@
 [build]
-  command = "npm install"
+  command = "npm install && npm run build"
   publish = "."
+  base = "server"
   functions = "netlify/functions"
 
 [[redirects]]
