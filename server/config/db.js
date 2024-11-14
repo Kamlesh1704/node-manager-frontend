@@ -4,19 +4,17 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const USERNAME = process.env.DB_USERNAME;
-const PASSWROD = process.env.DB_PASSWORD;
+const PASSWORD = process.env.DB_PASSWORD;
 
-const URI = `mongodb+srv://${USERNAME}:${PASSWROD}@cluster0.5lx7gov.mongodb.net/myNotebook`
-
+const URI = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.zeotqe3.mongodb.net/myNotebook?retryWrites=true&w=majority`;
 
 const connectToMongo = async () => {
+  try {
     const res = await mongoose.connect(URI);
-    if(res){
-        console.log("Database Connected Successfully!");
-    }
-    else{
-        console.log("Some error occured While connecting to Database");
-    }
-}
+    console.log("Database Connected Successfully!");
+  } catch (error) {
+    console.log("Some error occurred while connecting to the Database:", error.message);
+  }
+};
 
 export default connectToMongo;

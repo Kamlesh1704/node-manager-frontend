@@ -2,8 +2,8 @@ import noteContext from "./NoteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
+  //const host = "https://node-manager-back-k.onrender.com";";
   const host = "https://node-manager-back-k.onrender.com";
-
   const notesInitial = []
 
   const [notes, setNotes] = useState(notesInitial);
